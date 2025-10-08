@@ -43,6 +43,9 @@ INSTALLED_APPS = [
     'core'
 ]
 
+
+
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -73,7 +76,9 @@ TEMPLATES = [
 # WSGI_APPLICATION = 'chat.wsgi.application'
 ASGI_APPLICATION = "chat.asgi.application"
 
-
+LOGIN_REDIRECT_URL = '/core/'  # redirect after login
+LOGIN_URL = '/login/'          # if a non-authenticated user tries to access login-protected pages
+LOGOUT_REDIRECT_URL = '/login/' # redirect after logout
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 

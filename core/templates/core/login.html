@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        /* Reset and body styling */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Card container */
+        .login-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border-radius: 15px;
+            padding: 40px 30px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            color: #fff;
+        }
+
+        .login-card h2 {
+            margin-bottom: 30px;
+            font-size: 2rem;
+            letter-spacing: 1px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input[type="text"], 
+        input[type="password"], 
+        input[type="email"], 
+        input[type="submit"], 
+        button {
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+            transition: 0.3s ease;
+        }
+
+        input[type="text"], input[type="password"], input[type="email"] {
+            background: rgba(255,255,255,0.2);
+            color: #fff;
+        }
+
+        input[type="text"]::placeholder,
+        input[type="password"]::placeholder,
+        input[type="email"]::placeholder {
+            color: rgba(255,255,255,0.7);
+        }
+
+        input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus {
+            background: rgba(255,255,255,0.3);
+        }
+
+        button[type="submit"] {
+            background: #00c6ff;
+            color: #fff;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button[type="submit"]:hover {
+            background: #0072ff;
+            transform: scale(1.05);
+        }
+
+        /* Optional: form paragraph spacing */
+        form p {
+            margin-bottom: 15px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="login-card">
+        <h2>Login</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>
